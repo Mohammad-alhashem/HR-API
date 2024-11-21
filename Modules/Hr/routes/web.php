@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use Modules\HrAPI\App\Http\Controllers\HrAPIController;
+use Modules\Hr\App\Http\Controllers\HrController;
 
 /*
 |--------------------------------------------------------------------------
@@ -15,5 +15,5 @@ use Modules\HrAPI\App\Http\Controllers\HrAPIController;
 */
 
 Route::group([], function () {
-    Route::resource('hrapi', HrAPIController::class)->names('hrapi');
+    Route::resource('hr', HrController::class)->names('hr');
 });

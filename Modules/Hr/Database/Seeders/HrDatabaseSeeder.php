@@ -1,10 +1,10 @@
 <?php
 
-namespace Modules\HrAPI\Database\Seeders;
+namespace Modules\Hr\Database\Seeders;
 
 use Illuminate\Database\Seeder;
 
-class HrAPIDatabaseSeeder extends Seeder
+class HrDatabaseSeeder extends Seeder
 {
     /**
      * Run the database seeds.

@@ -1,15 +1,15 @@
 <?php
 
-namespace Modules\HrAPI\App\Providers;
+namespace Modules\Hr\App\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
 
-class HrAPIServiceProvider extends ServiceProvider
+class HrServiceProvider extends ServiceProvider
 {
-    protected string $moduleName = 'HrAPI';
+    protected string $moduleName = 'Hr';
 
-    protected string $moduleNameLower = 'hrapi';
+    protected string $moduleNameLower = 'hr';
 
     /**
      * Boot the application events.

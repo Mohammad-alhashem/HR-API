@@ -1,20 +1,20 @@
 <?php
 
-namespace Modules\HrAPI\App\Http\Controllers;
+namespace Modules\Hr\App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
-class HrAPIController extends Controller
+class HrController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        return view('hrapi::index');
+        return view('hr::index');
     }
 
     /**
@@ -22,7 +22,7 @@ class HrAPIController extends Controller
      */
     public function create()
     {
-        return view('hrapi::create');
+        return view('hr::create');
     }
 
     /**
@@ -38,7 +38,7 @@ class HrAPIController extends Controller
      */
     public function show($id)
     {
-        return view('hrapi::show');
+        return view('hr::show');
     }
 
     /**
@@ -46,7 +46,7 @@ class HrAPIController extends Controller
      */
     public function edit($id)
     {
-        return view('hrapi::edit');
+        return view('hr::edit');
     }
 
     /**

@@ -1,5 +1,5 @@
 {
-    "name": "nwidart/hrapi",
+    "name": "nwidart/hr",
     "description": "",
     "authors": [
         {
@@ -17,15 +17,15 @@
     },
     "autoload": {
         "psr-4": {
-            "Modules\\HrAPI\\": "",
-            "Modules\\HrAPI\\App\\": "app/",
-            "Modules\\HrAPI\\Database\\Factories\\": "database/factories/",
-            "Modules\\HrAPI\\Database\\Seeders\\": "database/seeders/"
+            "Modules\\Hr\\": "",
+            "Modules\\Hr\\App\\": "app/",
+            "Modules\\Hr\\Database\\Factories\\": "database/factories/",
+            "Modules\\Hr\\Database\\Seeders\\": "database/seeders/"
         }
     },
     "autoload-dev": {
         "psr-4": {
-            "Modules\\HrAPI\\Tests\\": "tests/"
+            "Modules\\Hr\\Tests\\": "tests/"
         }
     }
 }
