@@ -1,0 +1,11 @@
+{
+    "name": "HrAPI",
+    "alias": "hrapi",
+    "description": "",
+    "keywords": [],
+    "priority": 0,
+    "providers": [
+        "Modules\\HrAPI\\App\\Providers\\HrAPIServiceProvider"
+    ],
+    "files": []
+}
