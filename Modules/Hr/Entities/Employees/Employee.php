@@ -9,9 +9,9 @@ class Employee extends Model
 
     protected $table        = 'employees';
     protected $fillable     = [
-        'name',
-        'email',
-        'password',
+        'first_name',
+        'last_name',
+        'email'
     ];
 
 }

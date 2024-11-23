@@ -20,6 +20,11 @@ trait ApiResponses
         return response()->json($toReturn, 200);
     }
 
+    public function sendError($code, $message, $errors = [], $data = [] ) //on errors
+    {
+        return response()->json(['code' => $code, 'message' => $message, 'errors' => $errors, 'data' => $data], $code);
+    }
+
     public function pagination($collection)
     {
         return [
