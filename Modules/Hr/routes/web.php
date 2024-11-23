@@ -14,6 +14,6 @@ use Modules\Hr\App\Http\Controllers\HrController;
 |
 */
 
-Route::group([], function () {
-    Route::resource('hr', HrController::class)->names('hr');
-});
+// Route::group([], function () {
+//     Route::resource('hr', HrController::class)->names('hr');
+// });

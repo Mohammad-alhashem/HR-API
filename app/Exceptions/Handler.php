@@ -4,6 +4,9 @@ namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 use Throwable;
+use Illuminate\Validation\ValidationException;
+use Illuminate\Http\Request;
+use Symfony\Component\HttpFoundation\Response;
 
 class Handler extends ExceptionHandler
 {
@@ -44,5 +47,29 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+    }
+
+
+    public function render($request, Throwable $exception): Response
+    {
+        if ($exception instanceof ValidationException) {
+
+            $fields             = collect([]);
+            foreach ($exception->errors() as $Name => $Messages) {
+                $fields->push([
+                    'field'     => $Name,
+                    'message'   => count($Messages) > 0 ? $Messages[0] : '',
+                ]);
+            }
+
+            return response()->json([
+                'message'       => 'The given data was invalid.',
+                'data'          => [],
+                'errors'        => ['invalid_fields' => $fields],
+                'code'          => 422
+            ], 422);
+        }
+
+        return parent::render($request, $exception);
     }
 }

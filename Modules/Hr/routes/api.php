@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
     |
 */
 
-Route::middleware(['auth:sanctum'])->prefix('v1')->name('api.')->group(function () {
-    Route::get('hr', fn (Request $request) => $request->user())->name('hr');
+Route::group(['prefix' => 'employees'], function () {
+
+    Route::get('index',         'HrController@index');
+    Route::post('create',       'HrController@create');
+
 });

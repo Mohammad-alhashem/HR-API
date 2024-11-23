@@ -7,61 +7,36 @@ use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
 
+
+use Modules\Hr\Entities\Employees\Employee;
+use Modules\Hr\App\Http\Requests\CreateMultipleEmployeesRequest;
+use Modules\Hr\App\Http\Resources\EmployeeResource;
+use App\Traits\ApiResponses;
+
 class HrController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     */
+
+    use ApiResponses;
+
     public function index()
     {
-        return view('hr::index');
+
+        $per_page       = request()->get('per_page') ? request()->get('per_page') : 2;
+        $per_page       = is_numeric($per_page) && $per_page < 50 && $per_page > 0 ? $per_page : 10;
+
+        $employees      = Employee::paginate($per_page);
+        
+        return $this->sendSuccess('list_of_employees', [
+            'list'          => EmployeeResource::collection($employees),
+            'pagination'    => $this->pagination($employees)
+        ]);
     }
 
-    /**
-     * Show the form for creating a new resource.
-     */
-    public function create()
+    public function create(CreateMultipleEmployeesRequest $request)
     {
-        return view('hr::create');
-    }
 
-    /**
-     * Store a newly created resource in storage.
-     */
-    public function store(Request $request): RedirectResponse
-    {
-        //
-    }
+        $employee = Employee::first();
 
-    /**
-     * Show the specified resource.
-     */
-    public function show($id)
-    {
-        return view('hr::show');
     }
-
-    /**
-     * Show the form for editing the specified resource.
-     */
-    public function edit($id)
-    {
-        return view('hr::edit');
-    }
-
-    /**
-     * Update the specified resource in storage.
-     */
-    public function update(Request $request, $id): RedirectResponse
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     */
-    public function destroy($id)
-    {
-        //
-    }
+    
 }
