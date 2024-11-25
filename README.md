@@ -1,5 +1,5 @@
 
-# HR Employee Management System API
+# HR API
 
 ## Overview
 
