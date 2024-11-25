@@ -3,7 +3,6 @@
 namespace Modules\Hr\App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
 class EmployeeResource extends JsonResource
 {
@@ -16,15 +15,11 @@ class EmployeeResource extends JsonResource
 
     public function toArray($request)
     {
-
         return [
             'id'                => (string) $this->id,
-            'name'              => (string) $this->name,
+            'first_name'        => (string) $this->first_name,
+            'last_name'         => (string) $this->last_name,
             'email'             => (string) $this->email,
-            'image'             => (string) $this->image,
         ];
-
     }
-
-    
 }

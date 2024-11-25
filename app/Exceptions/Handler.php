@@ -52,6 +52,7 @@ class Handler extends ExceptionHandler
 
     public function render($request, Throwable $exception): Response
     {
+        // Custom validation error response
         if ($exception instanceof ValidationException) {
 
             $fields             = collect([]);

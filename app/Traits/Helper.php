@@ -6,6 +6,7 @@ namespace App\Traits;
 trait Helper
 {
 
+    // a function to check if the per_page is valid
     public function checkPageNumber($request_per_page)
     {
         $per_page       = $request_per_page ? $request_per_page : 2;
@@ -13,5 +14,4 @@ trait Helper
 
         return $per_page;
     }
-
 }

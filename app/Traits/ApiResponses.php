@@ -2,14 +2,10 @@
 
 namespace App\Traits;
 
-use GuzzleHttp\Psr7\Request;
-use Illuminate\Support\Collection;
-use Illuminate\Support\Facades\App;
-use Illuminate\Database\Eloquent\Model;
-
 trait ApiResponses
 {
 
+    // a function to send success response
     public function sendSuccess($message, $data = [])
     {
         $toReturn               = [];
@@ -20,11 +16,18 @@ trait ApiResponses
         return response()->json($toReturn, 200);
     }
 
+    // a function to send error response
     public function sendError($code, $message, $errors = [], $data = [] ) //on errors
     {
-        return response()->json(['code' => $code, 'message' => $message, 'errors' => $errors, 'data' => $data], $code);
+        return response()->json([
+            'code'          => $code, 
+            'message'       => $message, 
+            'errors'        => $errors, 
+            'data'          => $data
+        ], $code);
     }
 
+    // a function to view paginated response
     public function pagination($collection)
     {
         return [
@@ -37,6 +40,4 @@ trait ApiResponses
             'items_total'       => $collection->total(),
         ];
     }
-    
-
 }

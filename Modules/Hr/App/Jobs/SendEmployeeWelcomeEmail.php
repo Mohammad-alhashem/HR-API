@@ -7,6 +7,8 @@ use Illuminate\Queue\SerializesModels;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
+use Modules\Hr\App\Emails\EmployeeWelcomeEmail;
+use Illuminate\Support\Facades\Mail;
 
 class SendEmployeeWelcomeEmail implements ShouldQueue
 {
@@ -27,6 +29,6 @@ class SendEmployeeWelcomeEmail implements ShouldQueue
      */
     public function handle(): void
     {
-        dump($this->employee);
+        Mail::to($this->employee['email'])->send(new EmployeeWelcomeEmail($this->employee));
     }
 }
